@@ -12,6 +12,7 @@ class Board:
 
     def printPositions(self):
         system("cls")
+        print(art.logo)
         for p in self.players:
             print(f"{p}'s Position : {self.players[p]} ", end="\n\n")
 
@@ -23,13 +24,13 @@ class Board:
                   f"and moved from {self.players[player]} to {newPos}")
             
             if newPos in self.snakes:
-
+                print(art.snakeArt)
                 print(f"{player} got Bitten by a Snake at {newPos} !",
                       f"{player} goes down to {self.snakes[newPos]}.")
                 self.players[player] = self.snakes[newPos]
 
             elif newPos in self.ladders:
-                
+                print(art.ladderArt)
                 print(f"{player} found a Ladder at {newPos} !",
                       f"{player} goes up to {self.ladders[newPos]}.")
                 self.players[player] = self.ladders[newPos]

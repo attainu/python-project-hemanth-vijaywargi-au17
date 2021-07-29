@@ -1,6 +1,6 @@
 import dice
 import board
-from os import system
+import art
 
 def createBoard():
     Size = int(input("Size of the Board (20-100): "))
@@ -19,11 +19,12 @@ def createBoard():
 
 
 def game():
+    print(art.logo)
     board = createBoard()
 
     while True:
         for player in board.players:
-            system("cls")
+            
             board.printPositions()
 
             print(f"----- {player}'s Turn -----")
@@ -34,6 +35,7 @@ def game():
 
             if board.players[player] == board.size:
                 print("*"*16, f"{player} Wins the Game !", "*"*16)
+
                 return
             else:
                 input("Press any key to Continue : ")
@@ -44,3 +46,4 @@ if __name__ == "__main__":
     i = input("Press Enter to Play Again or e to Exit : ")
     while i != "e":
         game()
+
