@@ -1,6 +1,6 @@
 import dice
 import board
-
+from os import system
 
 def createBoard():
     Size = int(input("Size of the Board (20-100): "))
@@ -10,6 +10,7 @@ def createBoard():
     Tsnakes = int(input("Number of Snakes (3-8): "))
     Tladders = int(input("Number of Ladders (3-8): "))
     Tplayers = int(input("Number of Players (2-4): "))
+    
     players = {}
     for i in range(1, Tplayers+1):
         players[input(f"Player {i} Name : ")] = 0
@@ -22,12 +23,12 @@ def game():
 
     while True:
         for player in board.players:
-
+            system("cls")
             board.printPositions()
 
             print(f"----- {player}'s Turn -----")
             input("Press any key to Roll Dice : ")
-
+            
             diceVal = dice.roll()
             board.updatePos(player, diceVal)
 

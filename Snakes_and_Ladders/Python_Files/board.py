@@ -1,5 +1,6 @@
 from random import randint
 from os import system
+import art
 
 
 class Board:
@@ -20,7 +21,7 @@ class Board:
 
             print(f"{player} rolled a {diceVal}",
                   f"and moved from {self.players[player]} to {newPos}")
-
+            
             if newPos in self.snakes:
 
                 print(f"{player} got Bitten by a Snake at {newPos} !",
@@ -43,10 +44,9 @@ class Board:
         i = 0
         while i < Tsnakes:
             snakeHead = randint(11, self.size-1)
-            snakeTail = randint(2, snakeHead-6)
             if (snakeHead not in snakes):
                 if (snakeHead not in snakes.values()):
-                    snakes[snakeHead] = snakeTail
+                    snakes[snakeHead] = randint(2, snakeHead-6)
                     i += 1
         return snakes
 
@@ -61,3 +61,4 @@ class Board:
                         ladders[randint(2, ladderTop-6)] = ladderTop
                         i += 1
         return ladders
+
