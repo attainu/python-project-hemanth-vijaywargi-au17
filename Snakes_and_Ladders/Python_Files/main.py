@@ -7,9 +7,24 @@ def createBoard():
     if Size < 20:
         Size = 20
         print("Minimum Board Size is 20 ! Your Board Size has been set to 20.")
-    Tsnakes = int(input("Number of Snakes (3-8): "))
-    Tladders = int(input("Number of Ladders (3-8): "))
-    Tplayers = int(input("Number of Players (2-4): "))
+
+    Tsnakes = int(input("Number of Snakes (2-8): "))
+    if Tsnakes<2:
+        Tsnakes = 2
+        print("Minimum Number of Snakes is 2 ! Snakes have been set to 2")
+    elif Tsnakes>8:
+        Tsnakes = 8
+        print("Maximum Number of Snakes is 8 ! Snakes have been set to 8")
+
+    Tladders = int(input("Number of Ladders (2-8): "))
+    if Tladders<2:
+        Tsnakes = 2
+        print("Minimum Number of Ladders is 2 ! Ladders have been set to 2")
+    elif Tladders>8:
+        Tsnakes = 8
+        print("Maximum Number of Ladders is 8 ! Ladders have been set to 8")
+
+    Tplayers = int(input("Number of Players (Minimum 2): "))
     
     players = {}
     for i in range(1, Tplayers+1):

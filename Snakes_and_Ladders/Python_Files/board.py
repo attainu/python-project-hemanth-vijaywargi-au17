@@ -22,7 +22,7 @@ class Board:
 
             print(f"{player} rolled a {diceVal}",
                   f"and moved from {self.players[player]} to {newPos}")
-            
+
             if newPos in self.snakes:
                 print(art.snakeArt)
                 print(f"{player} got Bitten by a Snake at {newPos} !",
@@ -42,24 +42,63 @@ class Board:
 
     def generateSnakes(self, Tsnakes):
         snakes = {}
-        i = 0
-        while i < Tsnakes:
-            snakeHead = randint(11, self.size-1)
-            if (snakeHead not in snakes):
-                if (snakeHead not in snakes.values()):
-                    snakes[snakeHead] = randint(2, snakeHead-6)
-                    i += 1
+
+        while len(snakes) < Tsnakes:
+            SnakeTail = randint(2, self.size-11)
+            c1 = SnakeTail not in snakes.values()
+            c2 = SnakeTail not in snakes.keys()
+
+            if c1 and c2:
+                n = SnakeTail
+                while str(n)[-1] != "0":
+                    n += 1
+                temp = (n+1) - SnakeTail
+
+                SnakeHead = randint(SnakeTail+temp, self.size-1)
+                con1 = SnakeHead not in snakes.keys()
+                con2 = SnakeHead not in snakes.values()
+
+                while not(con1 and con2):
+                    SnakeHead = randint(SnakeTail+temp, self.size-1)
+                    con1 = SnakeHead not in snakes.keys()
+                    con2 = SnakeHead not in snakes.values()
+
+                snakes[SnakeHead] = SnakeTail
+
         return snakes
 
     def generateLadders(self, Tladders):
         ladders = {}
-        i = 0
-        while i < Tladders:
-            ladderTop = randint(11, self.size-1)
-            if (ladderTop not in ladders):
-                if (ladderTop not in ladders.values()):
-                    if (ladderTop not in self.snakes):
-                        ladders[randint(2, ladderTop-6)] = ladderTop
-                        i += 1
+
+        while len(ladders) < Tladders:
+            ladderBottom = randint(2, self.size-11)
+            c1 = ladderBottom not in ladders.keys()
+            c2 = ladderBottom not in ladders.values()
+            c3 = ladderBottom not in self.snakes.values()
+            c4 = ladderBottom not in self.snakes.keys()
+
+            if c1 and c2 and c3 and c4:
+                n = ladderBottom
+                while str(n)[-1] != "0":
+                    n += 1
+                temp = (n+1) - ladderBottom
+
+                ladderTop = randint(ladderBottom+temp, self.size-1)
+                con1 = ladderTop not in ladders.keys()
+                con2 = ladderTop not in ladders.values()
+                con3 = ladderTop not in self.snakes.keys()
+                con4 = ladderTop not in self.snakes.values()
+
+                while not(con1 and con2 and con3 and con4):
+                    ladderTop = randint(ladderBottom+temp, self.size-1)
+                    con1 = ladderTop not in ladders.keys()
+                    con2 = ladderTop not in ladders.values()
+                    con3 = ladderTop not in self.snakes.keys()
+                    con4 = ladderTop not in self.snakes.values()
+
+                ladders[ladderBottom] = ladderTop
+
         return ladders
 
+b = Board(30,4,4,2)
+print("snakes",b.snakes,"ladders",b.ladders)
