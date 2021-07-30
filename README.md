@@ -15,4 +15,4 @@ This is a Terminal/Text Based Game.
 3. Give Appropriate Inputs
 4. Enjoy the Game!
 
-![screenshot](Snakes_and_Ladders\Assets\Screenshot-1.png)
+![screenshot](https://github.com/attainu/python-project-hemanth-vijaywargi-au17/blob/dev/Snakes_and_Ladders/Assets/Screenshot-1.png)
