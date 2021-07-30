@@ -2,6 +2,7 @@ import dice
 import board
 import art
 
+
 def createBoard():
     Size = int(input("Size of the Board (20-100): "))
     if Size < 20:
@@ -9,23 +10,23 @@ def createBoard():
         print("Minimum Board Size is 20 ! Your Board Size has been set to 20.")
 
     Tsnakes = int(input("Number of Snakes (2-8): "))
-    if Tsnakes<2:
+    if Tsnakes < 2:
         Tsnakes = 2
         print("Minimum Number of Snakes is 2 ! Snakes have been set to 2")
-    elif Tsnakes>8:
+    elif Tsnakes > 8:
         Tsnakes = 8
         print("Maximum Number of Snakes is 8 ! Snakes have been set to 8")
 
     Tladders = int(input("Number of Ladders (2-8): "))
-    if Tladders<2:
+    if Tladders < 2:
         Tsnakes = 2
         print("Minimum Number of Ladders is 2 ! Ladders have been set to 2")
-    elif Tladders>8:
+    elif Tladders > 8:
         Tsnakes = 8
         print("Maximum Number of Ladders is 8 ! Ladders have been set to 8")
 
     Tplayers = int(input("Number of Players (Minimum 2): "))
-    while Tplayers<2:
+    while Tplayers < 2:
         print("Minimum Number of Players is 2, Please Try Again ! ")
         Tplayers = int(input("Number of Players (Minimum 2): "))
 
@@ -42,12 +43,12 @@ def game():
 
     while True:
         for player in board.players:
-            
+
             board.printPositions()
 
             print(f"----- {player}'s Turn -----")
             input("Press any key to Roll Dice : ")
-            
+
             diceVal = dice.roll()
             board.updatePos(player, diceVal)
 
@@ -64,4 +65,3 @@ if __name__ == "__main__":
     i = input("Press Enter to Play Again or q to Quit: ")
     while i != "q":
         game()
-
