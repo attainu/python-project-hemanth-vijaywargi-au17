@@ -14,4 +14,5 @@ This is a Terminal/Text Based Game.
 2. Find main.py in Snakes_and_Ladders/Python_Files and Run it.
 3. Give Appropriate Inputs
 4. Enjoy the Game!
-![screenshot](Snakes_and_Ladders\Python_Files\Screenshot-1.png)
+
+![screenshot](Snakes_and_Ladders\Assets\Screenshot-1.png)
