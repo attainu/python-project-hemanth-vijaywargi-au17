@@ -25,7 +25,10 @@ def createBoard():
         print("Maximum Number of Ladders is 8 ! Ladders have been set to 8")
 
     Tplayers = int(input("Number of Players (Minimum 2): "))
-    
+    while Tplayers<2:
+        print("Minimum Number of Players is 2, Please Try Again ! ")
+        Tplayers = int(input("Number of Players (Minimum 2): "))
+
     players = {}
     for i in range(1, Tplayers+1):
         players[input(f"Player {i} Name : ")] = 0
