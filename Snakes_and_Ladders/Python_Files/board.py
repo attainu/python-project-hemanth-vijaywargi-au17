@@ -99,6 +99,3 @@ class Board:
                 ladders[ladderBottom] = ladderTop
 
         return ladders
-
-b = Board(30,4,4,2)
-print("snakes",b.snakes,"ladders",b.ladders)

@@ -58,7 +58,7 @@ def game():
 
 if __name__ == "__main__":
     game()
-    i = input("Press Enter to Play Again or e to Exit : ")
-    while i != "e":
+    i = input("Press Enter to Play Again or q to Quit: ")
+    while i != "q":
         game()
 
